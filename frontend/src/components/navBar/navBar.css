@@ -1,0 +1,20 @@
+.outerDiv {
+    margin: 0px;
+    width: 100%;
+    position: fixed;
+  }
+  
+  .navBar {
+    background-color: #cc3e3e;
+    height: 70px;
+  }
+  
+  .palette {
+    primary: #51ff81;
+  }
+  
+  .font {
+    font-family: Helvetica;
+    font-weight: 300;
+    font-size: 30pt;
+  }
