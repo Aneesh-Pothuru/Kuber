@@ -244,7 +244,7 @@ export default function ButtonAppBar() {
                     <Button
                         className={classes.end}
                         color="inherit"
-                        href="https://github.com/nikhilpothuru/Entomo"
+                        href="https://github.com/Aneesh-Pothuru/TheHub"
                     >
                         GitHub
           </Button>
