@@ -15,6 +15,8 @@ import AccountCircle from "@material-ui/icons/AccountCircle";
 import MailIcon from "@material-ui/icons/Mail";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import MoreIcon from "@material-ui/icons/MoreVert";
+import ReactStars from "react-rating-stars-component";
+
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -176,7 +178,7 @@ export default function ButtonAppBar() {
 
     return (
         <div className={classes.grow}>
-            <AppBar position="static" style={{ backgroundColor: "#012C36" }}>
+            <AppBar position="static" style={{ backgroundColor: "#272A2B" }}>
                 <Toolbar>
                     {/* <IconButton
                         edge="start"
@@ -185,8 +187,8 @@ export default function ButtonAppBar() {
                         aria-label="open drawer"
                     >
                     </IconButton> */}
-                    <Typography className={classes.title} variant="h6" noWrap>
-                        <b>The Hub</b>
+                    <Typography className={classes.title} variant="h6" noWrap style={{ backgroundColor: "#F1921C" }}>
+                        <b> <span>&nbsp;</span> Cyber List <span>&nbsp;</span> </b>
                     </Typography>
                     <div className={classes.search}>
                         <div className={classes.searchIcon}>
@@ -207,6 +209,11 @@ export default function ButtonAppBar() {
                     <Button className={classes.buttons} color="inherit" href="">
                         Issues
           </Button>
+                    <ReactStars
+                        count={5}
+                        size={24}
+                        activeColor="#ffd700"
+                    />
                     <div className={classes.grow} />
                     <div className={classes.sectionDesktop}>
                         <IconButton aria-label="show 0 new mails" color="inherit">
