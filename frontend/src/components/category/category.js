@@ -43,6 +43,24 @@ class category extends React.Component {
                     imageUrl: 'https://image.freepik.com/free-photo/toys-floor-nursery_73683-228.jpg',
                     id: 6,
                     linkUrl: 'shop/toys'
+                },
+                {
+                    title: 'Motors',
+                    imageUrl: 'https://s.marketwatch.com/public/resources/images/MW-HY837_at_gla_ZH_20200122173813.jpg',
+                    id: 7,
+                    linkUrl: 'shop/motors'
+                },
+                {
+                    title: 'Music',
+                    imageUrl: 'https://www.mural-wallpaper.com/wp-content/uploads/2019/06/A-M25.jpeg',
+                    id: 8,
+                    linkUrl: 'shop/music'
+                },
+                {
+                    title: 'Garden',
+                    imageUrl: 'https://www.millcreekgardens.com/wp-content/uploads/2016/10/gardening-supplies-new.jpg',
+                    id: 9,
+                    linkUrl: 'shop/garden'
                 }
             ]
         }

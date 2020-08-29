@@ -9,6 +9,12 @@
     margin: 0 7.5px 15px;
     background-position: center;
     background-size: cover;
+    cursor: pointer;
+    -moz-osx-font-smoothing: grayscale;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    transition: transform 0.25s ease-out;
+
   
     .content {
       height: 90px;
@@ -20,6 +26,7 @@
       border: 1px solid black;
       background-color: #272A2B;
       opacity: 0.9;
+      position: absolute;
   
       .title {
         font-weight: bold;
@@ -33,4 +40,8 @@
         font-size: 16px;
       }
     }
+  }
+
+  .item:hover{
+    transform: scale(1.05);
   }

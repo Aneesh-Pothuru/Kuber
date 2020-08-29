@@ -25,7 +25,7 @@ function emailReport(title, subject, csv) {
     const dataCSV = csv.map(row => row.map(entry => '\"' + entry + '\"')).join("\n");
     let mailOptions = {
         from: '@gmail.com',
-        to: 'pothuruaneesh23@gmail.com',
+        to: '@gmail.com',
         subject: title,
         text: subject,
         attachments: [{
@@ -46,7 +46,7 @@ function emailReport(title, subject, csv) {
 app.post("/mail", (req, res) => {
     console.log("Email has been recieved", req.headers)
     console.log(req.body)
-    emailReport(req.body.csv, req.body.title, req.body.report)
+    emailReport(req.body.csv, req.body.title, req.body.subject)
 
 })
 
