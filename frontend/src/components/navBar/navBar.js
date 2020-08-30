@@ -6,11 +6,11 @@ import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import InputBase from "@material-ui/core/InputBase";
-import Badge from "@material-ui/core/Badge";
 import { Route } from 'react-router-dom';
 import SearchIcon from "@material-ui/icons/Search";
 import AccountCircle from "@material-ui/icons/AccountCircle";
 import MailIcon from "@material-ui/icons/Mail";
+import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
 import ReactStars from "react-rating-stars-component";
 import { emailReport } from "../../api/email/email";
 
@@ -95,6 +95,13 @@ export default function ButtonAppBar() {
     const title = "test";
     const subject = "test";
     const csv = "test";
+    const home = props => {
+        return (
+            <Button className={classes.buttons} color="inherit" onClick={() => props.history.push('/')}>
+                Home
+            </Button>
+        )
+    }
     const shop = props => {
         return (
             <Button className={classes.buttons} color="inherit" onClick={() => props.history.push('/shop')}>
@@ -114,6 +121,13 @@ export default function ButtonAppBar() {
             <Button className={classes.buttons} color="inherit" onClick={() => props.history.push('/about')}>
                 About Us
             </Button>
+        )
+    }
+    const cart = props => {
+        return (
+            <IconButton color="inherit" onClick={() => props.history.push('/checkout')}>
+                <ShoppingCartOutlinedIcon />
+            </IconButton>
         )
     }
     const profile = props => {
@@ -144,6 +158,7 @@ export default function ButtonAppBar() {
                             inputProps={{ "aria-label": "search" }}
                         />
                     </div>
+                    <Route path='/' component={home} />
                     <Route path='/' component={shop} />
                     <Route path='/' component={contact} />
                     <Route path='/' component={about} />
@@ -153,6 +168,7 @@ export default function ButtonAppBar() {
                         activeColor="#ffd700"
                     />
                     <div className={classes.grow} />
+                    <Route path='/' component={cart} />
                     <div className={classes.sectionDesktop}>
                         <IconButton onClick={() => { emailReport(title, subject, csv) }} color="inherit">
                             <MailIcon />
