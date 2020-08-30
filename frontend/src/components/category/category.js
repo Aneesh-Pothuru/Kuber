@@ -69,8 +69,8 @@ class category extends React.Component {
     render() {
         return (
             <div className='menu'>{
-                this.state.sections.map(section => (
-                    <Items key={section.id} title={section.title} imageUrl={section.imageUrl} />
+                this.state.sections.map((section) => (
+                    <Items key={section.id} title={section.title} imageUrl={section.imageUrl} linkUrl={section.linkUrl} />
                 ))
             } </div>
         )
