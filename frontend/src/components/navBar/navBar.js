@@ -12,6 +12,7 @@ import SearchIcon from "@material-ui/icons/Search";
 import AccountCircle from "@material-ui/icons/AccountCircle";
 import MailIcon from "@material-ui/icons/Mail";
 import ReactStars from "react-rating-stars-component";
+import { emailReport } from "../../api/email/email";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -91,6 +92,9 @@ const useStyles = makeStyles((theme) => ({
 
 export default function ButtonAppBar() {
     const classes = useStyles();
+    const title = "test";
+    const subject = "test";
+    const csv = "test";
     const shop = props => {
         return (
             <Button className={classes.buttons} color="inherit" onClick={() => props.history.push('/shop')}>
@@ -125,7 +129,7 @@ export default function ButtonAppBar() {
             <AppBar position="static" style={{ backgroundColor: "#028FB2" }}>
                 <Toolbar>
                     <Typography className={classes.title} variant="h6" noWrap style={{ backgroundColor: "#272A2B" }}>
-                        <b> <span>&nbsp;</span> Cyber List <span>&nbsp;</span> </b>
+                        <b> <span>&nbsp;</span> Kuber <span>&nbsp;</span> </b>
                     </Typography>
                     <div className={classes.search}>
                         <div className={classes.searchIcon}>
@@ -150,10 +154,8 @@ export default function ButtonAppBar() {
                     />
                     <div className={classes.grow} />
                     <div className={classes.sectionDesktop}>
-                        <IconButton aria-label="show 0 new mails" color="inherit">
-                            <Badge badgeContent={0} color="secondary">
-                                <MailIcon />
-                            </Badge>
+                        <IconButton onClick={() => { emailReport(title, subject, csv) }} color="inherit">
+                            <MailIcon />
                         </IconButton>
                     </div>
                     <Route path='/' component={profile} />
