@@ -1,5 +1,7 @@
 import React from 'react';
 
+import ShopItems from "../shopItems/shopItems"
+
 const items = [
     {
         id: 1,
@@ -7,8 +9,11 @@ const items = [
         routeName: 'electronics',
         items: [
             {
-
-            }
+                id: 1,
+                name: '',
+                imageUrl: '',
+                price: '',
+            },
         ]
     },
     {
@@ -17,8 +22,11 @@ const items = [
         routeName: 'fashion',
         items: [
             {
-
-            }
+                id: 1,
+                name: '',
+                imageUrl: '',
+                price: '',
+            },
         ]
     },
     {
@@ -27,8 +35,11 @@ const items = [
         routeName: 'home',
         items: [
             {
-
-            }
+                id: 1,
+                name: '',
+                imageUrl: '',
+                price: '',
+            },
         ]
     },
     {
@@ -37,8 +48,11 @@ const items = [
         routeName: 'sports',
         items: [
             {
-
-            }
+                id: 1,
+                name: '',
+                imageUrl: '',
+                price: '',
+            },
         ]
     },
     {
@@ -47,8 +61,11 @@ const items = [
         routeName: 'industrial',
         items: [
             {
-
-            }
+                id: 1,
+                name: '',
+                imageUrl: '',
+                price: '',
+            },
         ]
     },
     {
@@ -57,8 +74,11 @@ const items = [
         routeName: 'toys',
         items: [
             {
-
-            }
+                id: 1,
+                name: '',
+                imageUrl: '',
+                price: '',
+            },
         ]
     },
     {
@@ -67,8 +87,11 @@ const items = [
         routeName: 'motors',
         items: [
             {
-
-            }
+                id: 1,
+                name: '',
+                imageUrl: '',
+                price: '',
+            },
         ]
     },
     {
@@ -77,8 +100,11 @@ const items = [
         routeName: 'music',
         items: [
             {
-
-            }
+                id: 1,
+                name: '',
+                imageUrl: '',
+                price: '',
+            },
         ]
     },
     {
@@ -87,8 +113,11 @@ const items = [
         routeName: 'garden',
         items: [
             {
-
-            }
+                id: 1,
+                name: '',
+                imageUrl: '',
+                price: '',
+            },
         ]
     }
 
@@ -102,4 +131,17 @@ class Shop extends React.Component {
             collections: items
         }
     }
+
+    render() {
+        const { collections } = this.state
+        return (<div className='shop-page'>
+            {
+                collections.map(({ id, ...itemProps }) => (
+                    <ShopItems key={id} {...itemProps} />
+                ))
+            }
+        </div>)
+    }
 }
+
+export default Shop;

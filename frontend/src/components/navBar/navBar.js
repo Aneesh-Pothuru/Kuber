@@ -11,7 +11,6 @@ import SearchIcon from "@material-ui/icons/Search";
 import AccountCircle from "@material-ui/icons/AccountCircle";
 import MailIcon from "@material-ui/icons/Mail";
 import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
-import ReactStars from "react-rating-stars-component";
 import { emailReport } from "../../api/email/email";
 
 
@@ -109,13 +108,6 @@ export default function ButtonAppBar() {
             </Button>
         )
     }
-    const contact = props => {
-        return (
-            <Button className={classes.buttons} color="inherit" onClick={() => props.history.push('/contact')}>
-                Contact
-            </Button>
-        )
-    }
     const about = props => {
         return (
             <Button className={classes.buttons} color="inherit" onClick={() => props.history.push('/about')}>
@@ -160,13 +152,7 @@ export default function ButtonAppBar() {
                     </div>
                     <Route path='/' component={home} />
                     <Route path='/' component={shop} />
-                    <Route path='/' component={contact} />
                     <Route path='/' component={about} />
-                    <ReactStars
-                        count={5}
-                        size={24}
-                        activeColor="#ffd700"
-                    />
                     <div className={classes.grow} />
                     <Route path='/' component={cart} />
                     <div className={classes.sectionDesktop}>
