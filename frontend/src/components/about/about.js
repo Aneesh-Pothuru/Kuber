@@ -18,7 +18,7 @@ const about = () => (
                         <h2>Aneesh Pothuru</h2>
                         <p class="title">Software Engineer</p>
                         <p>Contact</p>
-                        <p>@gmail.com</p>
+                        <p>pothuruaneesh23@gmail.com</p>
                         <p><Button class="button" href="https://www.linkedin.com/in/aneesh-pothuru/">Contact</Button></p>
                     </div>
                 </div>
