@@ -10,7 +10,7 @@ const items = [
         items: [
             {
                 id: 1,
-                name: '',
+                name: 'iPhone 11 Pro',
                 imageUrl: '',
                 price: '',
             },
@@ -23,7 +23,7 @@ const items = [
         items: [
             {
                 id: 1,
-                name: '',
+                name: 'Air Jordan 1s',
                 imageUrl: '',
                 price: '',
             },
@@ -36,91 +36,12 @@ const items = [
         items: [
             {
                 id: 1,
-                name: '',
+                name: 'Blender',
                 imageUrl: '',
                 price: '',
             },
         ]
     },
-    {
-        id: 4,
-        title: 'Sports',
-        routeName: 'sports',
-        items: [
-            {
-                id: 1,
-                name: '',
-                imageUrl: '',
-                price: '',
-            },
-        ]
-    },
-    {
-        id: 5,
-        title: 'Industrial',
-        routeName: 'industrial',
-        items: [
-            {
-                id: 1,
-                name: '',
-                imageUrl: '',
-                price: '',
-            },
-        ]
-    },
-    {
-        id: 6,
-        title: 'Toys',
-        routeName: 'toys',
-        items: [
-            {
-                id: 1,
-                name: '',
-                imageUrl: '',
-                price: '',
-            },
-        ]
-    },
-    {
-        id: 7,
-        title: 'Motors',
-        routeName: 'motors',
-        items: [
-            {
-                id: 1,
-                name: '',
-                imageUrl: '',
-                price: '',
-            },
-        ]
-    },
-    {
-        id: 8,
-        title: 'Music',
-        routeName: 'music',
-        items: [
-            {
-                id: 1,
-                name: '',
-                imageUrl: '',
-                price: '',
-            },
-        ]
-    },
-    {
-        id: 9,
-        title: 'Garden',
-        routeName: 'garden',
-        items: [
-            {
-                id: 1,
-                name: '',
-                imageUrl: '',
-                price: '',
-            },
-        ]
-    }
-
 ]
 
 class Shop extends React.Component {

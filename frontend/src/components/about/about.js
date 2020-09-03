@@ -18,8 +18,8 @@ const about = () => (
                         <h2>Aneesh Pothuru</h2>
                         <p class="title">Software Engineer</p>
                         <p>Contact</p>
-                        <p>pothuruaneesh23@gmail.com</p>
-                        <p><Button class="button" href="https://www.linkedin.com/in/aneesh-pothuru/">Contact</Button></p>
+                        <p>aneesh.pothuru@sjsu.edu</p>
+                        <p><Button class="button" href="https://www.linkedin.com/in/aneesh-pothuru/">LinkedIn</Button></p>
                     </div>
                 </div>
             </div>
@@ -30,8 +30,8 @@ const about = () => (
                         <h2>Edgar Villanueva</h2>
                         <p class="title">Software Engineer</p>
                         <p>Contact</p>
-                        <p>@gmail.com</p>
-                        <p><Button class="button" href="https://www.linkedin.com/in/edgar-villanueva-0859501aa/">Contact</Button></p>
+                        <p>edgar.villanueva@sjsu.edu</p>
+                        <p><Button class="button" href="https://www.linkedin.com/in/edgar-villanueva-0859501aa/">LinkedIn</Button></p>
                     </div>
                 </div>
             </div>
@@ -42,8 +42,8 @@ const about = () => (
                         <h2>Matthew Wong</h2>
                         <p class="title">Software Engineer</p>
                         <p>Contact</p>
-                        <p>@gmail.com</p>
-                        <p><Button class="button" href="https://www.linkedin.com/in/matthew-wong-48a491163/">Contact</Button></p>
+                        <p>matthew.c.wong@sjsu.edu</p>
+                        <p><Button class="button" href="https://www.linkedin.com/in/matthew-wong-48a491163/">LinkedIn</Button></p>
                     </div>
                 </div>
             </div>

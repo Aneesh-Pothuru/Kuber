@@ -111,7 +111,7 @@ export default function ButtonAppBar() {
     const about = props => {
         return (
             <Button className={classes.buttons} color="inherit" onClick={() => props.history.push('/about')}>
-                About Us
+                About
             </Button>
         )
     }
