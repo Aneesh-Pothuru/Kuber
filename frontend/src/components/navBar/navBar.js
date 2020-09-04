@@ -6,7 +6,7 @@ import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import InputBase from "@material-ui/core/InputBase";
-import { Route } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
 import SearchIcon from "@material-ui/icons/Search";
 import AccountCircle from "@material-ui/icons/AccountCircle";
 import MailIcon from "@material-ui/icons/Mail";
@@ -75,18 +75,6 @@ const useStyles = makeStyles((theme) => ({
             width: "20ch",
         },
     },
-    sectionDesktop: {
-        display: "none",
-        [theme.breakpoints.up("md")]: {
-            display: "flex",
-        },
-    },
-    sectionMobile: {
-        display: "flex",
-        [theme.breakpoints.up("md")]: {
-            display: "none",
-        },
-    },
 }));
 
 export default function ButtonAppBar() {
@@ -134,9 +122,11 @@ export default function ButtonAppBar() {
         <div className={classes.grow}>
             <AppBar position="static" style={{ backgroundColor: "#028FB2" }}>
                 <Toolbar>
-                    <Typography className={classes.title} variant="h6" noWrap style={{ backgroundColor: "#272A2B" }}>
-                        <b> <span>&nbsp;</span> Kuber <span>&nbsp;</span> </b>
-                    </Typography>
+                    <Link to='/' style={{ color: '#FFF', textDecoration: 'none' }}>
+                        <Typography className={classes.title} variant="h6" noWrap style={{ backgroundColor: "#272A2B" }}>
+                            <b> <span>&nbsp;</span> Kuber <span>&nbsp;</span> </b>
+                        </Typography>
+                    </Link>
                     <div className={classes.search}>
                         <div className={classes.searchIcon}>
                             <SearchIcon />
