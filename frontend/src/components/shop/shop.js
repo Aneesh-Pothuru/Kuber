@@ -14,6 +14,30 @@ const items = [
                 imageUrl: '',
                 price: '',
             },
+            {
+                id: 2,
+                name: 'MacBook Pro',
+                imageUrl: '',
+                price: '',
+            },
+            {
+                id: 3,
+                name: 'Lenovo ThinkPad',
+                imageUrl: '',
+                price: '',
+            },
+            {
+                id: 4,
+                name: 'iPhone 6S',
+                imageUrl: '',
+                price: '',
+            },
+            {
+                id: 5,
+                name: 'iPhone X',
+                imageUrl: '',
+                price: '',
+            },
         ]
     },
     {
@@ -23,7 +47,31 @@ const items = [
         items: [
             {
                 id: 1,
-                name: 'Air Jordan 1s',
+                name: 'Jordan 1 Retro High Royal Toe',
+                imageUrl: '',
+                price: '',
+            },
+            {
+                id: 2,
+                name: 'Jordan 1 Retro High Off-White University Blue',
+                imageUrl: '',
+                price: '',
+            },
+            {
+                id: 3,
+                name: 'The North Face Crewneck',
+                imageUrl: '',
+                price: '',
+            },
+            {
+                id: 4,
+                name: 'FEAR OF GOD Jacket',
+                imageUrl: '',
+                price: '',
+            },
+            {
+                id: 5,
+                name: 'Goyard Saint Sulpice Wallet',
                 imageUrl: '',
                 price: '',
             },
