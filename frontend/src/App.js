@@ -6,6 +6,8 @@ import NavBar from "./components/navBar/navBar";
 import HomePage from "./components/homepage/homepage";
 import Shop from "./components/shop/shop";
 import About from "./components/about/about"
+import Account from "./components/accounts/accounts"
+
 
 function App() {
   return (
@@ -14,6 +16,7 @@ function App() {
       <Route exact path='/' component={HomePage} />
       <Route exact path='/shop' component={Shop} />
       <Route exact path='/about' component={About} />
+      <Route exact path='/profile' component={Account} />
     </div>
   );
 }
