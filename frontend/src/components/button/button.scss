@@ -1,0 +1,22 @@
+.stylebutton {
+    min-width: 100px;
+    height: 40px;
+    letter-spacing: 0.5px;
+    line-height: 30px;
+    padding: 0 15px 0 15px;
+    font-size: 15px;
+    background-color: #028FB1;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bolder;
+    border: 1px solid #272A2B;
+    cursor: pointer;
+  
+    &:hover {
+      background-color: #02576d;
+      color: white;
+      border: 1px solid #272A2B;
+      transition: background-color 0.5s ease-out;
+    }
+  }
+  

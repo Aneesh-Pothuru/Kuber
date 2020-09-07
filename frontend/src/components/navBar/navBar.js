@@ -74,7 +74,7 @@ export default function ButtonAppBar() {
     }
     const profile = props => {
         return (
-            <IconButton edge="end" color="inherit" onClick={() => props.history.push('/profile')}>
+            <IconButton edge="end" color="inherit" onClick={() => props.history.push('/signin')}>
                 <AccountCircle />
             </IconButton>
         )

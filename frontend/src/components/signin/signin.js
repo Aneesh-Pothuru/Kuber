@@ -1,5 +1,8 @@
 import React from 'react';
 import InputHandle from '../inputHandle/inputHandle';
+import Button from '../button/button';
+import { Link } from 'react-router-dom';
+import { googleLog } from '../../firebase/firebase';
 import './signin.scss';
 
 class SignIn extends React.Component {
@@ -38,7 +41,13 @@ class SignIn extends React.Component {
                 <form onSubmit={this.whenSubmit}>
                     <InputHandle name='email' type='email' value={this.state.email} inputChange={this.whenChange} label='Email' required />
                     <InputHandle name='password' type='password' value={this.state.password} inputChange={this.whenChange} label='Password' required />
-                    <input type="submit" value='Sign In' />
+                    <Button type="submit">Sign In</Button>
+                </form>
+                <Link to='/createaccount'>
+                    <h5>New user? Create Account</h5>
+                </Link>
+                <form onSubmit={this.whenSubmit}>
+                    <Button onClick={googleLog}>Sign in with Google</Button>
                 </form>
             </div>
         )
