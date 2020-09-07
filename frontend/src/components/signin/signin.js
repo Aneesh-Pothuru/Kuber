@@ -1,6 +1,6 @@
 import React from 'react';
-
-import './signin.scss'
+import InputHandle from '../inputHandle/inputHandle';
+import './signin.scss';
 
 class SignIn extends React.Component {
     constructor(props) {
@@ -36,10 +36,8 @@ class SignIn extends React.Component {
                 </div>
 
                 <form onSubmit={this.whenSubmit}>
-                    <label>Email</label>
-                    <input name='email' type='email' value={this.state.email} onChange={this.whenChange} required />
-                    <label>Password</label>
-                    <input name='password' type='password' value={this.state.password} onChange={this.whenChange} required />
+                    <InputHandle name='email' type='email' value={this.state.email} inputChange={this.whenChange} label='Email' required />
+                    <InputHandle name='password' type='password' value={this.state.password} inputChange={this.whenChange} label='Password' required />
                     <input type="submit" value='Sign In' />
                 </form>
             </div>
