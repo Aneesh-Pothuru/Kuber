@@ -7,18 +7,34 @@ import HomePage from "./components/homepage/homepage";
 import Shop from "./components/shop/shop";
 import About from "./components/about/about"
 import Account from "./components/accounts/accounts"
+import { auth } from './firebase/firebase';
 
+class App extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      user: null
+    }
+  }
 
-function App() {
-  return (
-    <div className="App">
-      <Route exact={false} path='/' component={NavBar} />
-      <Route exact path='/' component={HomePage} />
-      <Route exact path='/shop' component={Shop} />
-      <Route exact path='/about' component={About} />
-      <Route exact path='/signin' component={Account} />
-    </div>
-  );
+  componentDidMount() {
+    auth.onAuthStateChanged(theUser => {
+      this.setState({ user: theUser })
+      console.log(theUser);
+    });
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <Route exact={false} path='/' component={NavBar} />
+        <Route exact path='/' component={HomePage} />
+        <Route exact path='/shop' component={Shop} />
+        <Route exact path='/about' component={About} />
+        <Route exact path='/signin' component={Account} />
+      </div>
+    );
+  }
 }
 
 export default App;

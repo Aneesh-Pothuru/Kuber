@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function ButtonAppBar() {
+function ButtonAppBar() {
     const classes = useStyles();
     const title = "test";
     const subject = "test";
@@ -92,7 +92,7 @@ export default function ButtonAppBar() {
                     {/* <div className={classes.welcome}>
                         <Link to='/profile' style={{ color: '#FFF', textDecoration: 'none' }}>
                             <Typography variant="h6" noWrap>
-                                <b> Welcome back, name</b>
+                                <b>Welcome back, {name.displayName}</b>
                             </Typography>
                         </Link>
                     </div> */}
@@ -121,3 +121,5 @@ export default function ButtonAppBar() {
         </div>
     );
 }
+
+export default ButtonAppBar;
