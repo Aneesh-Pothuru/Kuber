@@ -16,21 +16,21 @@ app.use(cookieParser());
 let transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-        user: '@gmail.com',
-        pass: ''
+        user: 'kubersjsu@gmail.com',
+        pass: 'kubercmpe131'
     }
 });
 
 function emailReport(email, title, subject, csv) {
-    const dataCSV = csv.map(row => row.map(entry => '\"' + entry + '\"')).join("\n");
+    //const dataCSV = csv.map(row => row.map(entry => '\"' + entry + '\"')).join("\n");
     let mailOptions = {
-        from: '@gmail.com',
+        from: 'kubersjsu@gmail.com',
         to: email,
         subject: title,
         text: subject,
         attachments: [{
-            filename: 'report.csv',
-            content: dataCSV
+            filename: 'report.txt',
+            content: csv
         }]
     };
 
