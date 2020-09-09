@@ -1,0 +1,32 @@
+.profile{
+    display: flex;
+    flex-direction: column;
+}
+.outButton{
+    margin-top: 20px;
+}
+.profileImage {
+    padding: 15px;
+    border: 1px solid #272A2B;
+    border-radius: 50%;
+    max-width: 300px;
+    margin-top: 50px;
+    text-align: center;
+}
+.userProfile {
+    padding: 15px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+    max-width: 500px;
+    margin: auto;
+    text-align: center;
+}
+.profleCategory{
+    float: left;
+}
+.profileDescription{
+    float: right;
+}
+
+.container{
+    overflow: hidden;
+}

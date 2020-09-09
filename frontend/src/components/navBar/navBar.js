@@ -1,4 +1,5 @@
 import React from "react";
+import './navBar.scss';
 import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -11,7 +12,6 @@ import MailIcon from "@material-ui/icons/Mail";
 import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
 import { emailReport } from "../../api/email/email";
 
-
 const useStyles = makeStyles((theme) => ({
     buttons: {
         marginRight: theme.spacing(2),
@@ -19,12 +19,17 @@ const useStyles = makeStyles((theme) => ({
     start: {
         marginLeft: theme.spacing(2),
     },
-
+    signIn: {
+        marginLeft: theme.spacing(1),
+    },
     end: {
-        marginLeft: theme.spacing(2),
+        marginRight: theme.spacing(4),
     },
     grow: {
         flexGrow: 1,
+    },
+    middle: {
+        flexGrow: 2,
     },
     title: {
         display: "none",
@@ -33,13 +38,11 @@ const useStyles = makeStyles((theme) => ({
         },
     },
     welcome: {
-        position: "relative",
-        marginRight: theme.spacing(2),
-        marginLeft: theme.spacing(5),
+        textAlign: "center"
     },
 }));
 
-function ButtonAppBar() {
+const ButtonAppBar = ({ currentUser }) => {
     const classes = useStyles();
     const title = "test";
     const subject = "test";
@@ -74,9 +77,16 @@ function ButtonAppBar() {
     }
     const profile = props => {
         return (
-            <IconButton edge="end" color="inherit" onClick={() => props.history.push('/signin')}>
+            <IconButton edge="end" color="inherit" onClick={() => props.history.push('/profile')}>
                 <AccountCircle />
             </IconButton>
+        )
+    }
+    const signIn = props => {
+        return (
+            <Button className={classes.signIn} color="inherit" onClick={() => props.history.push('/signin')}>
+                Sign In
+            </Button>
         )
     }
 
@@ -89,33 +99,44 @@ function ButtonAppBar() {
                             <b> <span>&nbsp;</span> Kuber <span>&nbsp;</span> </b>
                         </Typography>
                     </Link>
-                    {/* <div className={classes.welcome}>
-                        <Link to='/profile' style={{ color: '#FFF', textDecoration: 'none' }}>
-                            <Typography variant="h6" noWrap>
-                                <b>Welcome back, {name.displayName}</b>
-                            </Typography>
-                        </Link>
-                    </div> */}
                     <div className={classes.start}>
                         <Route path='/' component={home} />
                         <Route path='/' component={shop} />
                         <Route path='/' component={about} />
+                        <Button
+                            color="inherit"
+                            href="https://github.com/Aneesh-Pothuru/TheHub"
+                        >
+                            GitHub
+                    </Button>
                     </div>
+                    {
+                        currentUser ?
+                            <div className={classes.middle}>
+                                <Link to='/profile' style={{ color: '#FFF', textDecoration: 'none' }}>
+                                    <Typography variant="h6" noWrap>
+                                        <b>Welcome back, {currentUser.displayName.split(' ')[0]}</b>
+                                    </Typography>
+                                </Link>
+                            </div>
+                            :
+                            <div></div>
+                    }
                     <div className={classes.grow} />
                     <Route path='/' component={cart} />
                     <div className={classes.sectionDesktop}>
-                        <IconButton onClick={() => { emailReport(title, subject, csv) }} color="inherit">
+                        <IconButton onClick={() => { currentUser ? emailReport(currentUser.email, title, subject, csv) : emailReport('', '', '', '') }} color="inherit">
                             <MailIcon />
                         </IconButton>
                     </div>
-                    <Route path='/' component={profile} />
-                    <Button
-                        className={classes.end}
-                        color="inherit"
-                        href="https://github.com/Aneesh-Pothuru/TheHub"
-                    >
-                        GitHub
-                    </Button>
+                    <div className={classes.end}>
+                        {
+                            currentUser ?
+                                <Route path='/' component={profile} />
+                                :
+                                <Route path='/' component={signIn} />
+                        }
+                    </div>
                 </Toolbar>
             </AppBar>
         </div>

@@ -21,11 +21,11 @@ let transporter = nodemailer.createTransport({
     }
 });
 
-function emailReport(title, subject, csv) {
+function emailReport(email, title, subject, csv) {
     const dataCSV = csv.map(row => row.map(entry => '\"' + entry + '\"')).join("\n");
     let mailOptions = {
         from: '@gmail.com',
-        to: '@gmail.com',
+        to: email,
         subject: title,
         text: subject,
         attachments: [{
@@ -46,7 +46,7 @@ function emailReport(title, subject, csv) {
 app.post("/mail", (req, res) => {
     console.log("Email has been recieved", req.headers)
     console.log(req.body)
-    emailReport(req.body.csv, req.body.title, req.body.subject)
+    emailReport(req.body.email, req.body.csv, req.body.title, req.body.subject)
 
 })
 
