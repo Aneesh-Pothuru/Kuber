@@ -8,7 +8,7 @@ import Shop from "./components/shop/shop";
 import About from "./components/about/about"
 import Account from "./components/accounts/accounts"
 import Profile from "./components/profile/profile"
-import { auth } from './firebase/firebase';
+import { auth, userProfileDocument } from './firebase/firebase';
 
 class App extends React.Component {
   constructor() {
@@ -21,9 +21,20 @@ class App extends React.Component {
   leaveAuth = null;
 
   componentDidMount() {
-    this.leaveAuth = auth.onAuthStateChanged(theUser => {
-      this.setState({ user: theUser })
-      console.log(theUser);
+    this.leaveAuth = auth.onAuthStateChanged(async theUser => {
+      if (theUser) {
+        const userId = await userProfileDocument(theUser);
+
+        userId.onSnapshot(getId => {
+          this.setState({
+            user: {
+              id: getId.id,
+              ...getId.data()
+            }
+          })
+        })
+      }
+      this.setState({ user: theUser });
     });
   }
 

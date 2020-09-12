@@ -12,6 +12,34 @@ const key = {
     appId: "1:478484051391:web:04931483142f2fab619d0a",
     measurementId: "G-NQKXQTCN0C"
 };
+
+export const userProfileDocument = async (userAuth, info) => {
+    if (!userAuth) {
+        return;
+    }
+
+    const userId = firestore.doc(`users/${userAuth.uid}`);
+    const getId = await userId.get();
+
+    if (!getId.exists) {
+        const { displayName, email } = userAuth;
+        const createdAt = new Date();
+
+        try {
+            await userId.set({
+                displayName,
+                email,
+                createdAt,
+                ...info
+            })
+        } catch (error) {
+            console.log("user not working", error.message)
+        }
+    }
+
+    return userId;
+}
+
 firebase.initializeApp(key);
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();
