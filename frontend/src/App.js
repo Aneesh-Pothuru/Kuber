@@ -8,6 +8,7 @@ import Shop from "./components/shop/shop";
 import About from "./components/about/about"
 import Account from "./components/accounts/accounts"
 import Profile from "./components/profile/profile"
+import CreateAccount from "./components/createAccount/createAccount";
 import { auth, userProfileDocument } from './firebase/firebase';
 
 class App extends React.Component {
@@ -52,6 +53,7 @@ class App extends React.Component {
         <Route exact path='/shop' component={Shop} />
         <Route exact path='/about' component={About} />
         <Route exact path='/signin' component={Account} />
+        <Route exact path='/createaccount' component={CreateAccount} />
         <Route exact path='/profile' >
           <Profile currentUser={this.state.user} />
         </Route>

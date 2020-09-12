@@ -115,7 +115,12 @@ const ButtonAppBar = ({ currentUser }) => {
                             <div className={classes.middle}>
                                 <Link to='/profile' style={{ color: '#FFF', textDecoration: 'none' }}>
                                     <Typography variant="h6" noWrap>
-                                        <b>Welcome back, {currentUser.displayName.split(' ')[0]}</b>
+                                        {
+                                            currentUser.displayName ?
+                                                <b>Welcome back, {currentUser.displayName.split(' ')[0]}</b>
+                                                :
+                                                <b>Welcome</b>
+                                        }
                                     </Typography>
                                 </Link>
                             </div>

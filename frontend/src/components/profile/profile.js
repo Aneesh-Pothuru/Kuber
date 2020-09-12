@@ -22,8 +22,12 @@ const ProfilePage = ({ currentUser }) => {
                         <img
                             className="profileImage"
                             alt={currentUser.displayName}
-                            src={`https://robohash.org/${
+                            src={currentUser.displayName ?
+                                `https://robohash.org/${
                                 currentUser.displayName.split(' ')[0]
+                                }?set=set3`
+                                : `https://robohash.org/${
+                                currentUser.email
                                 }?set=set3`}
                         />
                         <div className="userProfile">
