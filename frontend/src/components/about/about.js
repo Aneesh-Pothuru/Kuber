@@ -13,7 +13,7 @@ const about = () => (
         <div class="row">
             <div class="column">
                 <div class="card">
-                    <img class="image" src="https://media-exp1.licdn.com/dms/image/C5603AQGZL4XzZNMz_Q/profile-displayphoto-shrink_400_400/0?e=1604534400&v=beta&t=cO30keippPswhtEJWYYpOK-2-bnD2QMaBAr3N2GUp94" alt="" style={{ "width": "50%" }} />
+                    <img class="image" src="https://media-exp1.licdn.com/dms/image/C5603AQGmWsfNK70_fg/profile-displayphoto-shrink_400_400/0?e=1608768000&v=beta&t=zA7GI_RQslH5yVEt0W9NSWMMeMcLqt4i7dAQC-qCrpo" alt="" style={{ "width": "50%" }} />
                     <div class="container">
                         <h2>Aneesh Pothuru</h2>
                         <p class="title">Software Engineer</p>

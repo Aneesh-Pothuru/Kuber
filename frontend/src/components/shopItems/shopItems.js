@@ -8,7 +8,7 @@ const shopItems = ({ title, items }) => (
         <h1 className='title'>{title.toUpperCase()}</h1>
         <div className='sections'>
             {
-                items.filter((item, idx) => idx < 3).map(({ id, ...itemProps }) => (
+                items.filter((item, idx) => idx < 4).map(({ id, ...itemProps }) => (
                     <ExploreItems key={id} {...itemProps} />
                 ))
             }
