@@ -10,32 +10,27 @@ import Account from "./components/accounts/accounts"
 import Profile from "./components/profile/profile"
 import CreateAccount from "./components/createAccount/createAccount";
 import { auth, userProfileDocument } from './firebase/firebase';
+import { connect } from 'react-redux';
+import { setUser } from './redux/user/user.action';
 
 class App extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      user: null
-    }
-  }
 
   leaveAuth = null;
 
   componentDidMount() {
+    const { setUser } = this.props;
     this.leaveAuth = auth.onAuthStateChanged(async theUser => {
       if (theUser) {
         const userId = await userProfileDocument(theUser);
 
         userId.onSnapshot(getId => {
-          this.setState({
-            user: {
-              id: getId.id,
-              ...getId.data()
-            }
+          setUser({
+            id: getId.id,
+            ...getId.data()
           })
         })
       }
-      this.setState({ user: theUser });
+      setUser(theUser);
     });
   }
 
@@ -47,19 +42,21 @@ class App extends React.Component {
     return (
       <div className="App">
         <Route exact={false} path='/'>
-          <NavBar currentUser={this.state.user} />
+          <NavBar />
         </Route>
         <Route exact path='/' component={HomePage} />
         <Route exact path='/shop' component={Shop} />
         <Route exact path='/about' component={About} />
         <Route exact path='/signin' component={Account} />
         <Route exact path='/createaccount' component={CreateAccount} />
-        <Route exact path='/profile' >
-          <Profile currentUser={this.state.user} />
-        </Route>
+        <Route exact path='/profile' component={Profile} />
       </div>
     );
   }
 }
 
-export default App;
+const mapDispatchToProps = dispatch => ({
+  setUser: users => dispatch(setUser(users))
+})
+
+export default connect(null, mapDispatchToProps)(App);

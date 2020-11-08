@@ -11,6 +11,7 @@ import AccountCircle from "@material-ui/icons/AccountCircle";
 import MailIcon from "@material-ui/icons/Mail";
 import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
 import { emailReport } from "../../api/email/email";
+import { connect } from "react-redux";
 
 const useStyles = makeStyles((theme) => ({
     buttons: {
@@ -148,4 +149,8 @@ const ButtonAppBar = ({ currentUser }) => {
     );
 }
 
-export default ButtonAppBar;
+const mapStatetoProps = state => ({
+    currentUser: state.user.user
+})
+
+export default connect(mapStatetoProps)(ButtonAppBar);

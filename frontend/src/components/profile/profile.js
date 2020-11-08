@@ -3,7 +3,7 @@ import './profile.scss';
 import Button from '../button/button';
 import { auth } from '../../firebase/firebase';
 import { Route } from 'react-router-dom';
-
+import { connect } from "react-redux";
 
 const ProfilePage = ({ currentUser }) => {
     const signIn = props => {
@@ -55,4 +55,8 @@ const ProfilePage = ({ currentUser }) => {
     );
 }
 
-export default ProfilePage;
+const mapStatetoProps = state => ({
+    currentUser: state.user.user
+})
+
+export default connect(mapStatetoProps)(ProfilePage);
