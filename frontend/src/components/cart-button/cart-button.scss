@@ -1,0 +1,19 @@
+.cart-button{
+    width:45px;
+    height: 45px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    .shop{
+        width: 24px;
+        height: 24px;
+    }
+    .count{
+        position: absolute;
+        font-size: 12px;
+        font-weight: bold;
+        top: 1px;
+    }
+}

@@ -9,7 +9,8 @@ import IconButton from "@material-ui/core/IconButton";
 import { Route, Link } from 'react-router-dom';
 import AccountCircle from "@material-ui/icons/AccountCircle";
 import MailIcon from "@material-ui/icons/Mail";
-import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
+import CartButton from '../cart-button/cart-button';
+import CartPop from '../cart-pop/cart-pop'
 import { emailReport } from "../../api/email/email";
 import { connect } from "react-redux";
 
@@ -43,7 +44,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const ButtonAppBar = ({ currentUser }) => {
+const ButtonAppBar = ({ currentUser, hidden }) => {
     const classes = useStyles();
     const title = "test";
     const subject = "test";
@@ -71,9 +72,15 @@ const ButtonAppBar = ({ currentUser }) => {
     }
     const cart = props => {
         return (
-            <IconButton color="inherit" onClick={() => props.history.push('/checkout')}>
-                <ShoppingCartOutlinedIcon />
-            </IconButton>
+            <div>
+                <IconButton color="inherit" >
+                    <CartButton />
+                </IconButton>
+                {
+                    hidden ? null :
+                        <CartPop theProp={props} />
+                }
+            </div>
         )
     }
     const profile = props => {
@@ -149,8 +156,9 @@ const ButtonAppBar = ({ currentUser }) => {
     );
 }
 
-const mapStatetoProps = state => ({
-    currentUser: state.user.user
+const mapStatetoProps = ({ user: { currentUser }, cart: { hidden } }) => ({
+    currentUser,
+    hidden
 })
 
 export default connect(mapStatetoProps)(ButtonAppBar);
