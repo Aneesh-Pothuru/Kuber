@@ -55,7 +55,9 @@ class CreateAccount extends React.Component {
                     <InputHandle type='email' name='email' value={email} onChange={this.createChange} label='Email' required />
                     <InputHandle type='password' name='pass' value={pass} onChange={this.createChange} label='Password' required />
                     <InputHandle type='password' name='confirmPass' value={confirmPass} onChange={this.createChange} label='Confirm Password' required />
-                    <Button type="submit">Create Account</Button>
+                    <div className="center">
+                        <Button type="submit">Create Account</Button>
+                    </div>
                 </form>
             </div>
         )

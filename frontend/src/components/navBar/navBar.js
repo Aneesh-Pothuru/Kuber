@@ -156,9 +156,9 @@ const ButtonAppBar = ({ currentUser, hidden }) => {
     );
 }
 
-const mapStatetoProps = ({ user: { currentUser }, cart: { hidden } }) => ({
-    currentUser,
-    hidden
+const mapStatetoProps = state => ({
+    currentUser: state.user.user,
+    hidden: state.cart.hidden
 })
 
 export default connect(mapStatetoProps)(ButtonAppBar);

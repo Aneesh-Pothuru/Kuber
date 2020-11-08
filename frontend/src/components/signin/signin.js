@@ -48,13 +48,17 @@ class SignIn extends React.Component {
                 <form onSubmit={this.whenSubmit}>
                     <InputHandle name='email' type='email' value={this.state.email} inputChange={this.whenChange} label='Email' required />
                     <InputHandle name='password' type='password' value={this.state.password} inputChange={this.whenChange} label='Password' required />
-                    <Button type="submit">Sign In</Button>
+                    <div className="center">
+                        <Button type="submit">Sign In</Button>
+                    </div>
                 </form>
                 <Link to='/createaccount'>
                     <h5>New user? Create Account</h5>
                 </Link>
                 <form onSubmit={this.whenSubmit}>
-                    <Button onClick={googleLog}>Sign in with Google</Button>
+                    <div className="center">
+                        <Button onClick={googleLog}>Sign in with Google</Button>
+                    </div>
                 </form>
             </div>
         )

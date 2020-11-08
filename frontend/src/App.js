@@ -55,12 +55,12 @@ class App extends React.Component {
   }
 }
 
-const mapStateToProps = ({ user }) => ({
-  user: user.user
+const mapStateToProps = state => ({
+  user: state.user.user
 })
 
 const mapDispatchToProps = dispatch => ({
-  setUser: users => dispatch(setUser(users))
+  setUser: user => dispatch(setUser(user))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

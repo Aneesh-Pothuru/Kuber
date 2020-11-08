@@ -1,5 +1,7 @@
 import React from 'react';
-
+import { connect } from 'react-redux';
+import Button from '../button/button';
+import { addItem } from '../../redux/cart/cart.actions'
 import './exploreItems.scss';
 
 const ExploreItems = ({ id, name, price, imageUrl }) => (
@@ -9,7 +11,12 @@ const ExploreItems = ({ id, name, price, imageUrl }) => (
             <span className='price'>{price}</span>
             <span className='name'>{name}</span>
         </div>
+        <Button >Add to Cart</Button>
     </div>
 )
 
-export default ExploreItems;
+const mapDispatchToProps = dispatch => ({
+    addItem: item => dispatch(addItem(item))
+})
+
+export default connect(null, mapDispatchToProps)(ExploreItems);

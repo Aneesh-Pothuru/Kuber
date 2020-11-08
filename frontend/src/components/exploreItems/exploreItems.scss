@@ -4,6 +4,7 @@
     flex-direction: column;
     height: 350px;
     align-items: center;
+    position: relative;
   
     .image {
       width: 100%;
@@ -12,7 +13,24 @@
       background-position: center;
       margin-bottom: 5px;
     }
-  
+    
+    .stylebutton{
+      width: 50%;
+      position: absolute;
+      top: 225px;
+      display: none;
+    }
+
+    &:hover{
+      .image{
+        opacity: 0.8;
+      }
+
+      .stylebutton{
+        display: flex;
+      }
+    }
+
     .cart {
       width: 80%;
       height: 5%;
