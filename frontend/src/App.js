@@ -1,7 +1,7 @@
 
 import React from "react";
 import "./App.css";
-import { Route } from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
 import NavBar from "./components/navBar/navBar";
 import HomePage from "./components/homepage/homepage";
 import Shop from "./components/shop/shop";
@@ -47,16 +47,20 @@ class App extends React.Component {
         <Route exact path='/' component={HomePage} />
         <Route exact path='/shop' component={Shop} />
         <Route exact path='/about' component={About} />
-        <Route exact path='/signin' component={Account} />
+        <Route exact path='/signin' render={() => this.props.user ? (<Redirect to='/' />) : (<Account />)} />
         <Route exact path='/createaccount' component={CreateAccount} />
-        <Route exact path='/profile' component={Profile} />
+        <Route exact path='/profile' render={() => !this.props.user ? (<Redirect to='/signin' />) : (<Profile />)} />
       </div>
     );
   }
 }
 
+const mapStateToProps = ({ user }) => ({
+  user: user.user
+})
+
 const mapDispatchToProps = dispatch => ({
   setUser: users => dispatch(setUser(users))
 })
 
-export default connect(null, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);
