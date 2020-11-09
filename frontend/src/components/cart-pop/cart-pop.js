@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux'
 import CartList from '../cart-list/cart-list'
 import Button from '../button/button';
-
+import { selectCartItems } from '../../redux/cart/cart.selectors'
 import './cart-pop.scss';
 
 const CartPop = ({ theProp, cartItems }) => (
@@ -17,7 +17,7 @@ const CartPop = ({ theProp, cartItems }) => (
 )
 
 const mapStateToProps = state => ({
-    cartItems: state.cart.cartItems
+    cartItems: selectCartItems(state)
 })
 
 export default connect(mapStateToProps)(CartPop);
