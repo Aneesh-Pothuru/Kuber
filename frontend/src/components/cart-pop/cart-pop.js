@@ -5,9 +5,10 @@ import Button from '../button/button';
 import { selectCartItems } from '../../redux/cart/cart.selectors';
 import { createStructuredSelector } from 'reselect';
 import { withRouter } from 'react-router-dom';
+import { cartHidden } from '../../redux/cart/cart.actions'
 import './cart-pop.scss';
 
-const CartPop = ({ theProp, cartItems }) => (
+const CartPop = ({ theProp, cartItems, dispatch }) => (
     <div className='cart-pop'>
         <div className='cart-items' >
             {
@@ -20,12 +21,16 @@ const CartPop = ({ theProp, cartItems }) => (
                     <span className="empty-cart">There are no items in the cart, add items to cart to view here.</span>
             }
         </div>
-        <Button onClick={() => theProp.history.push('/checkout')}>Checkout</Button>
+        <Button onClick={() => {
+            theProp.history.push('/checkout');
+            dispatch(cartHidden());
+        }}>Checkout</Button>
     </div>
 )
 
 const mapStateToProps = createStructuredSelector({
     cartItems: selectCartItems
+
 })
 
 export default withRouter(connect(mapStateToProps)(CartPop));
