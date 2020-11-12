@@ -9,11 +9,14 @@ import About from "./components/about/about"
 import Account from "./components/accounts/accounts"
 import Profile from "./components/profile/profile"
 import CreateAccount from "./components/createAccount/createAccount";
+import Checkout from './components/checkout/checkout'
 import { auth, userProfileDocument } from './firebase/firebase';
 import { connect } from 'react-redux';
 import { setUser } from './redux/user/user.action';
+import { selectCurrentUser } from './redux/user/user.selectors';
+import { createStructuredSelector } from 'reselect';
 
-class App extends React.Component {
+export class App extends React.Component {
 
   leaveAuth = null;
 
@@ -50,13 +53,14 @@ class App extends React.Component {
         <Route exact path='/signin' render={() => this.props.user ? (<Redirect to='/' />) : (<Account />)} />
         <Route exact path='/createaccount' component={CreateAccount} />
         <Route exact path='/profile' render={() => !this.props.user ? (<Redirect to='/signin' />) : (<Profile />)} />
+        <Route exact path='/checkout' component={Checkout} />
       </div>
     );
   }
 }
 
-const mapStateToProps = state => ({
-  user: state.user.user
+const mapStateToProps = createStructuredSelector({
+  user: selectCurrentUser
 })
 
 const mapDispatchToProps = dispatch => ({

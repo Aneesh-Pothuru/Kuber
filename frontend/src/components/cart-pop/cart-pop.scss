@@ -11,6 +11,15 @@
     right: 40px;
     z-index: 5;
   
+    .empty-cart{
+      font-size: 20px;
+      margin: 50px auto;
+    }
+
+    span{
+      color: #028FB1;
+    }
+
     .cart-items {
       height: 240px;
       display: flex;

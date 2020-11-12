@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { cartHidden } from '../../redux/cart/cart.actions'
 import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
 import { selectCartItemsCount } from '../../redux/cart/cart.selectors'
+import { createStructuredSelector } from 'reselect';
 import './cart-button.scss'
 
 
@@ -13,8 +14,8 @@ const CartButton = ({ cartHidden, count }) => (
     </div>
 )
 
-const mapStateToProps = state => ({
-    count: selectCartItemsCount(state)
+const mapStateToProps = createStructuredSelector({
+    count: selectCartItemsCount
 })
 
 const mapDispatchToProps = dispatch => ({

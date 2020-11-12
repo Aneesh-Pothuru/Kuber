@@ -13,6 +13,9 @@ import CartButton from '../cart-button/cart-button';
 import CartPop from '../cart-pop/cart-pop'
 import { emailReport } from "../../api/email/email";
 import { connect } from "react-redux";
+import { createStructuredSelector } from 'reselect';
+import { selectHidden } from '../../redux/cart/cart.selectors';
+import { selectCurrentUser } from '../../redux/user/user.selectors'
 
 const useStyles = makeStyles((theme) => ({
     buttons: {
@@ -44,7 +47,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const ButtonAppBar = ({ currentUser, hidden }) => {
+export const ButtonAppBar = ({ currentUser, hidden }) => {
     const classes = useStyles();
     const title = "test";
     const subject = "test";
@@ -99,7 +102,7 @@ const ButtonAppBar = ({ currentUser, hidden }) => {
     }
 
     return (
-        <div className={classes.grow}>
+        <div data-testid="navigation" className={classes.grow}>
             <AppBar position="static" style={{ backgroundColor: "#028FB2" }}>
                 <Toolbar>
                     <Link to='/' style={{ color: '#FFF', textDecoration: 'none' }}>
@@ -156,9 +159,9 @@ const ButtonAppBar = ({ currentUser, hidden }) => {
     );
 }
 
-const mapStatetoProps = state => ({
-    currentUser: state.user.user,
-    hidden: state.cart.hidden
+const mapStatetoProps = createStructuredSelector({
+    currentUser: selectCurrentUser,
+    hidden: selectHidden
 })
 
 export default connect(mapStatetoProps)(ButtonAppBar);
