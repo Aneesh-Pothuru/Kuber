@@ -15,8 +15,6 @@ import { connect } from 'react-redux';
 import { setUser } from './redux/user/user.action';
 import { selectCurrentUser } from './redux/user/user.selectors';
 import { createStructuredSelector } from 'reselect';
-import Directory from './components/directory/directory'
-
 
 export class App extends React.Component {
 
@@ -50,8 +48,7 @@ export class App extends React.Component {
           <NavBar />
         </Route>
         <Route exact path='/' component={HomePage} />
-        <Route exact path='/shop' component={Shop} />
-        <Route exact path='/shop/:directoryId' component={Directory} />
+        <Route path='/shop' component={Shop} />
         <Route exact path='/about' component={About} />
         <Route exact path='/signin' render={() => this.props.user ? (<Redirect to='/' />) : (<Account />)} />
         <Route exact path='/createaccount' component={CreateAccount} />
