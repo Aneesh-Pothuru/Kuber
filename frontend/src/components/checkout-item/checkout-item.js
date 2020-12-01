@@ -12,9 +12,11 @@ const CheckoutItem = ({ cartItem, clearItems, addItems, removeItems }) => {
             </div>
             <span className='name'>{name}</span>
             <span className='quantity'>
-                <div className="pointer" onClick={() => removeItems(cartItem)}>&#10094;</div>
+                {/* eslint-disable-next-line */}
+                <div className="pointer" onClick={() => removeItems(cartItem)}>&#10134;</div>
                 <span className='val'> {quantity} </span>
-                <div className="pointer" onClick={() => addItems(cartItem)}>&#10095;</div>
+                {/* eslint-disable-next-line */}
+                <div className="pointer" onClick={() => addItems(cartItem)}>&#10133;</div>
             </span>
             <span className='price'>{price}</span>
             {/* eslint-disable-next-line */}
