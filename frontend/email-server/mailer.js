@@ -29,7 +29,7 @@ function emailReport(email, title, subject, csv) {
         subject: title,
         text: subject,
         attachments: [{
-            filename: 'report.txt',
+            filename: 'receipt.txt',
             content: csv
         }]
     };
@@ -46,7 +46,7 @@ function emailReport(email, title, subject, csv) {
 app.post("/mail", (req, res) => {
     console.log("Email has been recieved", req.headers)
     console.log(req.body)
-    emailReport(req.body.email, req.body.csv, req.body.title, req.body.subject)
+    emailReport(req.body.email, req.body.title, req.body.subject, req.body.csv)
 
 })
 

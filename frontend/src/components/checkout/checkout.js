@@ -4,10 +4,18 @@ import { createStructuredSelector } from 'reselect';
 import CheckoutItem from '../checkout-item/checkout-item'
 import { selectCartItems, selectTotal } from '../../redux/cart/cart.selectors'
 import './checkout.scss'
-import StripeButton from '../stripe-button/stripe-button'
 import Stripe from '../stripe-button/stripe-button';
+import { emailReport } from "../../api/email/email";
+import { selectCurrentUser } from '../../redux/user/user.selectors';
 
-const Checkout = ({ cartItems, total }) => {
+const Checkout = ({ cartItems, total, currentUser }) => {
+    const email = currentUser ? currentUser.email : 'kubersjsu@gmail.com';
+    const title = "Kuber Purchase Receipt";
+    const body = "";
+    const body1 = cartItems.map(cartItem =>
+        body + cartItem.name + " " + cartItem.price + "\n"
+    );
+    const thanks = currentUser ? `Dear ${currentUser.displayName}, \n\nThank you for your purchase. Your products should be shipped soon! Below we have attatched your receipt. \n\nHappy Shopping, \nKuber Team` : "Thank you";
     return (
         <div className='checkout'>
             <div className='header'>
@@ -34,13 +42,14 @@ const Checkout = ({ cartItems, total }) => {
             }
             <div className='total'>
                 <span className='total1'>Total: ${total}</span>
-                <Stripe price={total} />
+                <Stripe onClick={emailReport(email, title, thanks, body1 + `\n $${total}`)} price={total} />
             </div>
         </div>
     )
 }
 
 const mapStateToProps = createStructuredSelector({
+    currentUser: selectCurrentUser,
     cartItems: selectCartItems,
     total: selectTotal
 })
